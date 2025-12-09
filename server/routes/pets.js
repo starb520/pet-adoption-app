@@ -48,17 +48,23 @@ router.get('/:id', getPet, (req, res) => {
 });
 
 // update a pet by id
-router.put('/:id', getPet, async (req, res) => {
-  try {
-    // Copy fields from req.body into the existing pet
-    Object.assign(res.pet, req.body);
-
-    const updatedPet = await res.pet.save();  // Save updated values
-    res.json(updatedPet);
-  } catch (error) {
-    res.status(400).json({ message: error.message });
-  }
+router.put('/:id', (req, res, next) => {
+  Pet.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    { new: true, runValidators: true }
+  )
+    .then(updatedPet => {
+      if (!updatedPet) {
+        return res.status(404).json({ message: "Pet not found" });
+      }
+      res.status(200).json(updatedPet);
+    })
+    .catch(error => {
+      res.status(500).json({ error: error.message });
+    });
 });
+
 
 // delete a pet by id
 router.delete('/:id', getPet, async (req, res) => {

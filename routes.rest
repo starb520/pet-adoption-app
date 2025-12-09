@@ -1,0 +1,33 @@
+### GET ALL PETS
+GET http://localhost:3000/api/pets
+
+### POST A NEW PET
+POST http://localhost:3000/api/pets
+Content-Type: application/json
+
+  {
+    "name": "Luna",
+    "type": "Cat",
+    "age": 1,
+    "gender": "Female",
+    "weight": 8,
+    "breed": "Siamese",
+    "description": "Playful and vocal kitten who enjoys climbing and interacting with people.",
+    "adopted": false,
+    "imageUrl": "https://www.purina.co.uk/sites/default/files/styles/ttt_image_original/public/2021-01/Siamese%201.webp?itok=CvhIfzd6"
+  }
+
+### GET A SINGLE PET BY ID
+GET http://localhost:3000/api/pets/69386749637c91a37d579936
+
+### PUT UPDATE TO A PET BY ID
+PUT http://localhost:3000/api/pets/69386749637c91a37d579936
+Content-Type: application/json
+
+
+{
+  "adopted": false
+}
+
+### DELETE A PET BY ID
+DELETE http://localhost:3000/api/pets/69386749637c91a37d579936
