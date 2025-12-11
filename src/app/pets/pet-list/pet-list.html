@@ -1,0 +1,23 @@
+<div class="pet-list-container">
+
+  <!-- Add New Pet Button -->
+  <div class="text-end mb-3">
+    <button
+      class="btn btn-primary"
+      routerLink="/pets/new">
+      + Add New Pet
+    </button>
+  </div>
+
+  <!-- Grid of Pets -->
+  <div class="row g-3">
+    <div
+      class="col-12 col-sm-6 col-md-4 col-lg-3"
+      *ngFor="let pet of pets">
+
+      <app-pet-item [pet]="pet"></app-pet-item>
+
+    </div>
+  </div>
+
+</div>

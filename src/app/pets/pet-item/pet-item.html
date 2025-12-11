@@ -1,0 +1,14 @@
+<div class="card pet-card" [routerLink]="['/pets', pet.id]">
+
+  <img
+    class="card-img-top pet-img"
+    [src]="pet.imageUrl"
+    [alt]="pet.name"
+  />
+
+  <div class="card-body text-center">
+    <h5 class="card-title">{{ pet.name }}</h5>
+    <p class="card-text text-muted">{{ pet.breed }}</p>
+  </div>
+
+</div>
