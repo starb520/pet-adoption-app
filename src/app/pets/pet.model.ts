@@ -10,5 +10,6 @@ export interface Pet {
   description?: string;
   adopted: boolean;
   imageUrl?: string;
-  dateAdded?: string;
+  dateAdded?: string | Date;
+
 }

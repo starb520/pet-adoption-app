@@ -1,1 +1,29 @@
-<p>pet-detail works!</p>
+<div class="panel panel-default" *ngIf="pet">
+  <div class="panel-heading">
+    <h3>{{ pet.name }}</h3>
+  </div>
+
+  <div class="panel-body">
+
+    <div class="text-center mb-3">
+      <img
+        [src]="pet.imageUrl"
+        [alt]="pet.name"
+        class="pet-detail-img"
+      />
+    </div>
+
+    <p><strong>Type:</strong> {{ pet.type }}</p>
+    <p><strong>Breed:</strong> {{ pet.breed }}</p>
+    <p><strong>Age:</strong> {{ pet.age }}</p>
+    <p><strong>Gender:</strong> {{ pet.gender }}</p>
+    <p><strong>Weight:</strong> {{ pet.weight }} lbs</p>
+    <p><strong>Description:</strong> {{ pet.description }}</p>
+
+    <div class="btn-toolbar mt-3">
+      <button class="btn btn-primary me-2" (click)="onEdit()">Edit</button>
+      <button class="btn btn-danger" (click)="onDelete()">Delete</button>
+    </div>
+
+  </div>
+</div>

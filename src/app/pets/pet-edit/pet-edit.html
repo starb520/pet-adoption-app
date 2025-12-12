@@ -1,1 +1,169 @@
-<p>pet-edit works!</p>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <form id="pet-edit" (ngSubmit)="onSubmit(f)" #f="ngForm">
+
+      <!-- Name -->
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="name">Name:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            class="form-control"
+            required
+            size="120"
+            max="120"
+            [ngModel]="pet?.name"
+            #name="ngModel"
+          />
+        </div>
+      </div>
+
+      <!-- Type -->
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="type">Type (Dog, Cat, etc.):</label>
+          <input
+            type="text"
+            id="type"
+            name="type"
+            class="form-control"
+            required
+            [ngModel]="pet?.type"
+            #type="ngModel"
+          />
+        </div>
+      </div>
+
+      <!-- Breed -->
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="breed">Breed:</label>
+          <input
+            type="text"
+            id="breed"
+            name="breed"
+            class="form-control"
+            [ngModel]="pet?.breed"
+            #breed="ngModel"
+          />
+        </div>
+      </div>
+
+      <!-- Age -->
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="age">Age:</label>
+          <input
+            type="number"
+            id="age"
+            name="age"
+            class="form-control"
+            required
+            [ngModel]="pet?.age"
+            #age="ngModel"
+          />
+        </div>
+      </div>
+
+      <!-- Gender -->
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="gender">Gender:</label>
+          <select
+            id="gender"
+            name="gender"
+            class="form-control"
+            required
+            [ngModel]="pet?.gender"
+            #gender="ngModel"
+          >
+            <option value="" disabled>Select gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Weight -->
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="weight">Weight (lbs):</label>
+          <input
+            type="number"
+            id="weight"
+            name="weight"
+            class="form-control"
+            [ngModel]="pet?.weight"
+            #weight="ngModel"
+          />
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="description">Description:</label>
+          <textarea
+            id="description"
+            name="description"
+            class="form-control"
+            rows="3"
+            [ngModel]="pet?.description"
+            #description="ngModel"
+          ></textarea>
+        </div>
+      </div>
+
+      <!-- Image URL -->
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="imageUrl">Image URL:</label>
+          <input
+            type="text"
+            id="imageUrl"
+            name="imageUrl"
+            class="form-control"
+            [ngModel]="pet?.imageUrl"
+            #imageUrl="ngModel"
+          />
+        </div>
+      </div>
+
+      <!-- Validation Message -->
+      <div class="row">
+        <div
+          class="col-sm-12 alert alert-danger"
+          *ngIf="(name.invalid && name.touched) || (type.invalid && type.touched) || (age.invalid && age.touched)"
+        >
+          <p>Name, Type, and Age are required.</p>
+        </div>
+      </div>
+
+      <!-- Buttons -->
+      <div class="row">
+        <div class="col-xs-12 btn-toolbar" style="margin-top: 25px;">
+          <button
+            style="margin-right: 5px;"
+            class="btn btn-success"
+            type="submit"
+            [disabled]="!f.valid"
+          >
+            Save
+          </button>
+
+          <button
+            class="btn btn-primary"
+            type="button"
+            (click)="onCancel()"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>
+
